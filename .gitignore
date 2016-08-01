@@ -1,0 +1,4 @@
+.idea/
+credentials.csv
+.DS_Store
+node_modules/
