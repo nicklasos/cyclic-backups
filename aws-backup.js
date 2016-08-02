@@ -9,5 +9,5 @@ module.exports.uploadFile = function (file, to, callback) {
   const body = fs.createReadStream(file);
   const s3obj = new AWS.S3({params: {Bucket: module.exports.bucket, Key: to}});
 
-  s3obj.upload({Body: body}).send(err => callback(err));
+  s3obj.upload({Body: body}).send(callback);
 };
