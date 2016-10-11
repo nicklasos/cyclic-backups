@@ -1,10 +1,10 @@
+const dumpName = require('./dump-name');
 const dump = require('./mysql-dump');
 const awsBackup = require('./aws-backup');
-const dumpName = require('./dump-name');
 
-awsBackup.bucket = 'mysql-dump-backup-us-west-2';
+const {db, file, config, bucket} = require('./opts')(process.argv.slice(2));
 
-const {db, file, config} = require('./opts')(process.argv.slice(2));
+awsBackup.bucket = bucket;
 
 if (!db || !file || !config) {
   return console.error('Wrong params');
@@ -17,6 +17,3 @@ dump.create({db, config}, (dumpFile) => {
     dump.clear(dumpFile);
   });
 });
-
-
-

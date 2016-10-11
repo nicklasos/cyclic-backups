@@ -2,9 +2,9 @@ const dumpName = require('./dump-name');
 const dump = require('./files-dump');
 const awsBackup = require('./aws-backup');
 
-awsBackup.bucket = 'mysql-dump-backup-us-west-2';
+const {dir, file, bucket} = require('./opts')(process.argv.slice(2));
 
-const {dir, file} = require('./opts')(process.argv.slice(2));
+awsBackup.bucket = bucket;
 
 if (!dir || !file) {
   return console.error('Wrong params');
