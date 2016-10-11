@@ -6,10 +6,11 @@ const fs = require('fs');
  * gunzip < [backupfile.sql.gz] | mysql -u [name] -p[pass] [dbname]
  * mysqlimport -u [name] -p[pass] [dbname] [backupfile.sql]
  */
-module.exports.create = function ({user, password, db}, callback) {
+module.exports.create = function ({db, config}, callback) {
   const file = 'mysql_backup_' + Date.now() + '.sql.gz';
 
-  child_process.exec(`mysqldump -u ${user} -p${password} ${db} | gzip -9 > ${file}`, () => {
+  child_process.exec(`mysqldump --defaults-file=${config} ${db} | gzip -9 > ${file}`, (error) => {
+    console.log(error);
     callback(file);
   });
 };
