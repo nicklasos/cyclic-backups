@@ -12,7 +12,8 @@ module.exports = function (name) {
     .replace('{week}', week(date))
     .replace('{year}', date.getFullYear())
     .replace('{month}', fmt(date.getMonth() + 1))
-    .replace('{day}', days[date.getDay()])
+    .replace('{day}', fmt(date.getDate()))
+    .replace('{week}', days[date.getDay()])
     .replace('{hours}', fmt(date.getHours()))
     .replace('{minutes}', fmt(date.getMinutes()))
     .replace('{seconds}', fmt(date.getSeconds()));

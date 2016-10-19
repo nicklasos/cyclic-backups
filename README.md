@@ -8,7 +8,7 @@ node mysql \
 --config=config.cnf
 --db="dbname"  \
 --bucket="aws-backup-bucket"
---file="backup/{host}/{year}/{week}/{month}/{day}/{hours}/{minutes}/{seconds}/{timestamp}.dump.sql.gz"
+--file="backup/{host}/{year}/{month}/{day}/{week}/{hours}/{minutes}/{seconds}/{timestamp}.dump.sql.gz"
 ```
 
 ###config.cnf

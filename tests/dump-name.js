@@ -11,15 +11,15 @@ describe('dump name', () => {
       'backup',
       os.hostname(),
       '2016',
-      'mon',
       '08',
+      '01',
       'mon',
       '03',
       '09',
       '05',
     ].join('/');
 
-    const actual = dumpName('backup/{host}/{year}/{week}/{month}/{day}/{hours}/{minutes}/{seconds}');
+    const actual = dumpName('backup/{host}/{year}/{month}/{day}/{week}/{hours}/{minutes}/{seconds}');
 
     assert.equal(testName, actual);
 
