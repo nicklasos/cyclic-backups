@@ -10,7 +10,6 @@ module.exports.create = function ({db, config}, callback) {
   const file = 'mysql_backup_' + Date.now() + '.sql.gz';
 
   child_process.exec(`mysqldump --defaults-file=${config} ${db} | gzip -9 > ${file}`, (error) => {
-    console.log(error);
     callback(file);
   });
 };
