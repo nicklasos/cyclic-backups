@@ -19,6 +19,9 @@ password=password
 host=localhost
 ```
 
+####TODO
+Use [mysql config](http://dev.mysql.com/doc/refman/5.6/en/mysql-config-editor.html) editor insted of config.cnf
+
 # Files backups
 
 ```
