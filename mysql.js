@@ -10,7 +10,12 @@ if (!db || !file || !config) {
   return console.error('Wrong params');
 }
 
-dump.create({db, config}, (dumpFile) => {
+dump.create({db, config}, (err, dumpFile) => {
+  if (err) {
+    console.error(err);
+    return dump.clear(dumpFile);
+  }
+
   awsBackup.uploadFile(dumpFile, dumpName(file), (err) => {
     if (err) console.error(err);
 

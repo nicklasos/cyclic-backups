@@ -9,11 +9,11 @@ const fs = require('fs');
 module.exports.create = function ({db, config}, callback) {
   const file = 'mysql_backup_' + Date.now() + '.sql.gz';
 
-  child_process.exec(`mysqldump --defaults-file=${config} ${db} | gzip -9 > ${file}`, (error) => {
-    callback(file);
+  child_process.exec(`mysqldump --defaults-file=${config} ${db} | gzip -9 > ${file}`, (err) => {
+    callback(err, file);
   });
 };
 
 module.exports.clear = function (file) {
-  fs.unlink(file);
+  fs.unlinkSync(file);
 };

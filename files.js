@@ -10,7 +10,12 @@ if (!dir || !file) {
   return console.error('Wrong params');
 }
 
-dump.create(dir, (dumpFile) => {
+dump.create(dir, (err, dumpFile) => {
+  if (err) {
+    console.error(err);
+    return dump.clear(dumpFile);
+  }
+
   awsBackup.uploadFile(dumpFile, dumpName(file), (err) => {
     if (err) console.error(err);
 
