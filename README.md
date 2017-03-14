@@ -11,7 +11,7 @@ node mysql \
 --file="backup/{host}/{year}/{month}/{day}/{week}/{hours}/{minutes}/{seconds}/{timestamp}.dump.sql.gz"
 ```
 
-###config.cnf
+### config.cnf
 ```ini
 [client]
 user=root
@@ -19,7 +19,7 @@ password=password
 host=localhost
 ```
 
-####TODO
+#### TODO
 Use [mysql config](http://dev.mysql.com/doc/refman/5.6/en/mysql-config-editor.html) editor insted of config.cnf
 
 # Files backups
