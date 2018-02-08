@@ -9,7 +9,7 @@ const fs = require('fs');
 module.exports.create = function ({db, config}, callback) {
   const file = 'mysql_backup_' + Date.now() + '.sql.gz';
 
-  child_process.exec(`mysqldump --defaults-file=${config} ${db} | gzip -9 > ${file}`, (err) => {
+  child_process.exec(`mysqldump --single-transaction --defaults-file=${config} ${db} | gzip -9 > ${file}`, (err) => {
     callback(err, file);
   });
 };
