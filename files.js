@@ -4,11 +4,11 @@ const awsBackup = require('./aws-backup');
 
 const {dir, file, bucket} = require('./opts')(process.argv.slice(2));
 
-awsBackup.bucket = bucket;
-
-if (!dir || !file) {
+if (!dir || !file || !bucket) {
   return console.error('Wrong params');
 }
+
+awsBackup.bucket = bucket;
 
 dump.create(dir, (err, dumpFile) => {
   if (err) {
