@@ -17,8 +17,6 @@ module.exports.create = function ({db, config}, callback) {
 
   command += `--single-transaction ${db} | gzip -9 > ${file}`;
 
-  console.log(command);
-
   child_process.exec(command, (err) => {
     callback(err, file);
   });
