@@ -4,7 +4,7 @@ const fs = require('fs');
 module.exports.create = function (dir, callback) {
   const file = 'files_backup_' + Date.now() + '.tar.gz';
 
-  child_process.exec(`tar -zcvf ${file} ${dir}`, (err) => {
+  child_process.exec(`tar -zcvf ${file} ${dir} >> /dev/null 2>&1`, (err) => {
     callback(err, file);
   });
 };
