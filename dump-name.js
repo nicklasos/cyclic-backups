@@ -1,6 +1,6 @@
 const os = require('os');
 
-module.exports = function (name) {
+function dumpName(name) {
   const date = module.exports.date;
 
   const days = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
@@ -17,9 +17,7 @@ module.exports = function (name) {
     .replace('{hours}', fmt(date.getHours()))
     .replace('{minutes}', fmt(date.getMinutes()))
     .replace('{seconds}', fmt(date.getSeconds()));
-};
-
-module.exports.date = new Date();
+}
 
 function fmt(number) {
   return ('0' + number).slice(-2);
@@ -32,3 +30,6 @@ function week(date) {
 function randomInt() {
   return Math.floor(Math.random() * 10e15);
 }
+
+module.exports = dumpName;
+module.exports.date = new Date();
