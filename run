@@ -2,5 +2,4 @@ node mysql \
 --config=config.cnf \
 --db="db"  \
 --bucket="aws-backup-bucket" \
---ignoreTables="sessions" \
 --file="backup/{host}/{year}/{month}/{day}/{week}/{hours}/{minutes}/{seconds}/{timestamp}.dump.sql.gz"

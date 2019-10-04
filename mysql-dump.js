@@ -16,7 +16,7 @@ const dump = {
       command += `--defaults-file=${config} `;
     }
 
-    if (params.hasOwnProperty('ignoreTables')) {
+    if (params.ignoreTables) {
       params.
         ignoreTables.
         split(',').
