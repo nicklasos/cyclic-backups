@@ -8,6 +8,7 @@ node mysql \
 --config=config.cnf \
 --db="dbname"  \
 --bucket="aws-backup-bucket" \
+--ignoreTables="sessions,logs"
 --file="backup/{host}/{year}/{month}/{day}/{week}/{hours}/{minutes}/{seconds}/{timestamp}.dump.sql.gz"
 ```
 

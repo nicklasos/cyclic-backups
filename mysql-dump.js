@@ -7,13 +7,20 @@ const dump = {
    * gunzip < [backupfile.sql.gz] | mysql -u [name] -p[pass] [dbname]
    * mysqlimport -u [name] -p[pass] [dbname] [backupfile.sql]
    */
-  create({db, config}, callback) {
+  create({db, config, params}, callback) {
     const file = 'mysql_backup_' + Date.now() + '.sql.gz';
 
     let command = 'mysqldump ';
 
     if (config) {
       command += `--defaults-file=${config} `;
+    }
+
+    if (params.hasOwnProperty('ignoreTables')) {
+      params.
+        ignoreTables.
+        split(',').
+        forEach(table => command += `--ignore-table=${db}.${table} `);
     }
 
     command += `--single-transaction ${db} | gzip -9 > ${file}`;
