@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "aws-sdk": "^2.4.11"
+    "aws-sdk": "^2.814.0"
   },
   "devDependencies": {
     "chai": "^3.5.0",
